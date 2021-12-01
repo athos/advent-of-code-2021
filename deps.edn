@@ -1,11 +1,7 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.0-alpha3"}}
  :aliases
- {:run-m {:main-opts ["-m" "advent-of-code-2021.advent-of-code-2021"]}
-  :run-x {:ns-default advent-of-code-2021.advent-of-code-2021
-          :exec-fn greet
-          :exec-args {:name "Clojure"}}
-  :build {:deps {io.github.seancorfield/build-clj
+ {:build {:deps {io.github.seancorfield/build-clj
                  {:git/tag "v0.5.0" :git/sha "2ceb95a"}}
           :ns-default build}
   :test {:extra-paths ["test"]
