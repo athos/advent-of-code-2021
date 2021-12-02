@@ -1,4 +1,5 @@
 # advent-of-code-2021
+[![build](https://github.com/athos/advent-of-code-2021/actions/workflows/build.yml/badge.svg)](https://github.com/athos/advent-of-code-2021/actions/workflows/build.yml)
 
 My solutions for [Advent of Code 2021](https://adventofcode.com/2021) in Clojure
 
