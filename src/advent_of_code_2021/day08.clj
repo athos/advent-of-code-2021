@@ -33,9 +33,9 @@
 (defn- consistent? [pats assign]
   (->> pats
        (reduce (fn [segs->num pat]
-                     (or (step segs->num assign pat)
-                         (reduced nil)))
-                   segs->num)
+                 (or (step segs->num assign pat)
+                     (reduced nil)))
+               segs->num)
        boolean))
 
 (defn- resolve-assignment [pats]
