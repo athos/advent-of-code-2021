@@ -1,5 +1,6 @@
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.11.0-alpha3"}}
+ :deps {org.clojure/clojure {:mvn/version "1.11.0-alpha3"}
+        org.clojure/math.combinatorics {:mvn/version "0.1.6"}}
  :aliases
  {:dev {:extra-deps
         {postmortem/postmortem {:mvn/version "0.5.0"}}}
