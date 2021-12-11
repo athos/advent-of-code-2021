@@ -16,8 +16,7 @@
 (defn octopuses-to-be-flashed [flashed m]
   (reduce-kv (fn [acc pos v]
                (cond-> acc
-                 (and (not (flashed pos))
-                      (> v 9))
+                 (and (not (flashed pos)) (> v 9))
                  (conj pos)))
              #{} m))
 
@@ -25,7 +24,8 @@
   (into []
         (comp (distinct)
               (mapcat (partial neighbors m))
-              (remove flashed))
+              (remove flashed)
+              (remove (set to-be-flashed)))
         to-be-flashed))
 
 (defn step [m]
@@ -34,9 +34,10 @@
          affected (affected-octopuses m flashed flashed)]
     (if (seq affected)
       (let [m' (reduce #(update %1 %2 inc) m affected)
-            to-be-flashed (octopuses-to-be-flashed flashed m')
-            flashed' (into flashed to-be-flashed)]
-        (recur m' flashed' (affected-octopuses m' flashed' to-be-flashed)))
+            to-be-flashed (octopuses-to-be-flashed flashed m')]
+        (recur m'
+               (into flashed to-be-flashed)
+               (affected-octopuses m' flashed to-be-flashed)))
       {:m (reduce #(assoc %1 %2 0) m flashed)
        :flashed flashed})))
 
