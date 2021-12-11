@@ -1,13 +1,16 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.0-alpha3"}
-        org.clojure/math.combinatorics {:mvn/version "0.1.6"}}
+        org.clojure/math.combinatorics {:mvn/version "0.1.6"}},
  :aliases
- {:dev {:extra-deps
-        {postmortem/postmortem {:mvn/version "0.5.0"}}}
-  :build {:deps {io.github.seancorfield/build-clj
-                 {:git/tag "v0.5.0" :git/sha "2ceb95a"}}
-          :ns-default build}
-  :test {:extra-paths ["test"]
-         :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}
-                      io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.0" :git/sha "48c3c67"}}}}}
+ {:check
+  {:extra-deps {io.github.athos/clj-check {:git/tag "0.1.0", :git/sha "0ca84df"}}
+   :main-opts ["-m" "clj-check.check"]},
+  :dev {:extra-deps {postmortem/postmortem {:mvn/version "0.5.0"}}},
+  :build
+  {:deps {io.github.seancorfield/build-clj {:git/tag "v0.5.0", :git/sha "2ceb95a"}},
+   :ns-default build},
+  :test
+  {:extra-paths ["test"],
+   :extra-deps
+   {org.clojure/test.check {:mvn/version "1.1.0"},
+    io.github.cognitect-labs/test-runner {:git/tag "v0.5.0", :git/sha "48c3c67"}}}}}
