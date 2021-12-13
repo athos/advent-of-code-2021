@@ -43,9 +43,3 @@
 
 (defn part2 [lines]
   (run step2 {:graph (parse-graph lines) :loc "start" :path [] :flag false}))
-
-(comment
-  (require '[clojure.java.io :as io])
-  (with-open [r (io/reader (io/resource "input12.txt"))]
-    (time (part2 (line-seq r))))
-  )
